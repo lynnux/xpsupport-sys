@@ -6,6 +6,8 @@ build = "build.rs"
 keywords = ["xp", "xpsupport", "RWLock", "Condvar", "windows"]
 license = "MIT"
 links = "xpsupport"
+description = "Using a hack way to support xp, only need to link one dll. More details please visit repository."
+repository = "https://github.com/lynnux/xpsupport"
 
 [dependencies]
-xpsupport = {path = "../xpsupport"}
+xpsupport = "~0.1"
