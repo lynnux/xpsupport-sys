@@ -1,0 +1,11 @@
+[package]
+name = "xpsupport-sys"
+version = "0.1.0"
+authors = ["lynnux <lynnux@qq.com>"]
+build = "build.rs"
+keywords = ["xp", "xpsupport", "RWLock", "Condvar", "windows"]
+license = "MIT"
+links = "xpsupport"
+
+[dependencies]
+xpsupport = {path = "../xpsupport"}
