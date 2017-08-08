@@ -21,3 +21,7 @@ rand = "*"
 [[test]]
 name = "test"
 path = "test/mod.rs"
+
+[[bin]]
+name = "mpsc_test"
+path = "test/mpsc_test/main.rs"
