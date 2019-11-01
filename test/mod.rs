@@ -1,6 +1,8 @@
 ﻿#![feature(once_poison)]
 #![feature(const_fn)]
 #![feature(box_syntax)]
+#![feature(wait_until)]
+#![feature(wait_timeout_until)]
 
 #[cfg(test)]
 extern crate rand;

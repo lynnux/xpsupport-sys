@@ -14,7 +14,7 @@ exclude = [
 xpsupport = "0.2"
 
 [dev-dependencies]
-rand = "*"
+rand = "0.7"
 
 [[test]]
 name = "test"
