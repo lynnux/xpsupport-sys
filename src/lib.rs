@@ -1,6 +1,6 @@
-extern "C" {fn xpinit();}
+﻿extern crate xpsupport;
 
-pub fn init()
+pub fn main()
 {
-    unsafe {xpinit();}
+    xpsupport::init();
 }
