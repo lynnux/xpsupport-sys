@@ -1,16 +1,16 @@
-#![feature(once_poison)]
+﻿#![feature(once_poison)]
 #![feature(const_fn)]
 #![feature(box_syntax)]
 
 #[cfg(test)]
 extern crate rand;
 
-extern crate xpsupport_sys;
+extern crate xpsupport;
 
 #[test]
 fn test_init()
 {
-    xpsupport_sys::init();
+    xpsupport::init();
 }
 
 mod mpsc;
