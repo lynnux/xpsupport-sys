@@ -1,4 +1,4 @@
-
+﻿
 #[cfg(all(test, not(target_os = "emscripten")))]
 mod tests {
     use super::*;
@@ -458,36 +458,36 @@ mod tests {
         assert!(Instant::now() >= start + timeout);
     }
 
-    #[test]
-    #[cfg_attr(target_env = "sgx", ignore)] // FIXME: https://github.com/fortanix/rust-sgx/issues/31
-    fn stress_recv_timeout_shared() {
-        let (tx, rx) = channel();
-        let stress = stress_factor() + 100;
+    // #[test]
+    // #[cfg_attr(target_env = "sgx", ignore)] // FIXME: https://github.com/fortanix/rust-sgx/issues/31
+    // fn stress_recv_timeout_shared() {
+    //     let (tx, rx) = channel();
+    //     let stress = stress_factor() + 100;
 
-        for i in 0..stress {
-            let tx = tx.clone();
-            thread::spawn(move || {
-                thread::sleep(Duration::from_millis(i as u64 * 10));
-                tx.send(1usize).unwrap();
-            });
-        }
+    //     for i in 0..stress {
+    //         let tx = tx.clone();
+    //         thread::spawn(move || {
+    //             thread::sleep(Duration::from_millis(i as u64 * 10));
+    //             tx.send(1usize).unwrap();
+    //         });
+    //     }
 
-        drop(tx);
+    //     drop(tx);
 
-        let mut recv_count = 0;
-        loop {
-            match rx.recv_timeout(Duration::from_millis(10)) {
-                Ok(n) => {
-                    assert_eq!(n, 1usize);
-                    recv_count += 1;
-                }
-                Err(RecvTimeoutError::Timeout) => continue,
-                Err(RecvTimeoutError::Disconnected) => break,
-            }
-        }
+    //     let mut recv_count = 0;
+    //     loop {
+    //         match rx.recv_timeout(Duration::from_millis(10)) {
+    //             Ok(n) => {
+    //                 assert_eq!(n, 1usize);
+    //                 recv_count += 1;
+    //             }
+    //             Err(RecvTimeoutError::Timeout) => continue,
+    //             Err(RecvTimeoutError::Disconnected) => break,
+    //         }
+    //     }
 
-        assert_eq!(recv_count, stress);
-    }
+    //     assert_eq!(recv_count, stress);
+    // }
 
     #[test]
     #[cfg_attr(target_env = "sgx", ignore)] // FIXME: https://github.com/fortanix/rust-sgx/issues/31
